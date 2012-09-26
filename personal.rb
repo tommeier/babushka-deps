@@ -30,13 +30,13 @@ meta 'dot-files' do
   accepts_value_for :target, :basename
 
   template {
-    met? { "#{ENV['HOME']}/.#{target}/.git".p.dir? }
+    met? { "#{ENV['HOME']}/development/projects/personal/#{target}/.git".p.dir? }
     meet {
-      log_shell "Cloning", "git clone git@github.com:tommeier/#{repo}.git #{ENV['HOME']}/.#{target}"
-      log_shell "Symlinking", "cd .#{target} && rake install"
+      log_shell "Cloning", "git clone git@github.com:tommeier/#{repo}.git #{ENV['HOME']}/development/projects/personal/#{target}"
+      log_shell "Symlinking", "cd #{ENV['HOME']}/development/projects/personal/#{target} && rake install"
     }
   }
 end
 
 dep 'dotfiles', :template => 'dot-files'
-#dep 'private-dotfiles', :template => 'dot-files'
+dep 'private-dotfiles', :template => 'dot-files'
