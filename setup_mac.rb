@@ -1,13 +1,14 @@
 # My Macbook Air 13"
-
+#TODO : Get the recipes off ben and put in this repo so I can set postgres to 9.2 in met etc
 dep 'setup_mac' do
   requires 'development_dir'
   requires 'current', 'company', 'family', 'archived'
-
+  
+  requires 'publish-to-script'
   requires 'dotfiles', 'private-dotfiles'
 
   requires 'benhoskings:tree.managed',
-           'postgres.managed',
+           'benhoskings:postgres.managed',
            'redis'
 
   requires 'setup osx apps installed'
@@ -47,7 +48,4 @@ dep 'setup osx apps installed' do
            'VirtualBox.app',
            'pow'
 
-  # Manual (No longer actively released)
-  requires 'Navicat for PostgreSQL Lite.app',
-           'Navicat for Oracle Lite.app'
 end

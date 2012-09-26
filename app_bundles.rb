@@ -97,11 +97,11 @@ end
 
 ###Manually saved (no longer released)###
 dep 'Navicat for PostgreSQL Lite.app' do
-  source 'https://www.dropbox.com/s/4mozn08qw6tz78g/Navicat%20for%20PostgreSQL%20Lite.app.zip'
+#APP STORE  source 'https://www.dropbox.com/s/4mozn08qw6tz78g/Navicat%20for%20PostgreSQL%20Lite.app.zip'
 end
 
 dep 'Navicat for Oracle Lite.app' do
-  source 'https://www.dropbox.com/s/r689xysc5keyfll/Navicat%20for%20Oracle%20Lite.app.zip'
+#APP STORE  source 'https://www.dropbox.com/s/r689xysc5keyfll/Navicat%20for%20Oracle%20Lite.app.zip'
 end
 
 
