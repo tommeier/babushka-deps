@@ -6,8 +6,7 @@ dep 'setup_mac' do
 
   requires 'dotfiles', 'private-dotfiles'
 
-  requires 'ack.managed',
-           'tree.managed',
+  requires 'benhoskings:tree.managed',
            'postgres.managed',
            'redis'
 

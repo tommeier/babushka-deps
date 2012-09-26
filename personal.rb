@@ -1,10 +1,10 @@
 dep 'development_dir' do
   met? {
-    (ENV['HOME'] / "development" / "projects").dir?
+    (ENV['HOME'] / "development").dir? && (ENV['HOME'] / "development" / "projects").dir?
   }
 
   meet {
-    log_shell "Make ~/development/projects", 'mkdir ~/development/projects'
+    log_shell "Make ~/development/projects", 'mkdir -p ~/development/projects'
   }
 end
 
@@ -14,7 +14,7 @@ meta 'project_dir' do
   template {
     met? { (ENV['HOME'] / "development" / "projects" / target).dir? }
     meet {
-      log_shell "Make ~/development/projects/#{target}", 'mkdir ~/development/projects/#{target}'
+      log_shell "Make ~/development/projects/#{target}", "mkdir -p ~/development/projects/#{target}"
     }
   }
 end
