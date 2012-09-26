@@ -25,7 +25,7 @@ dep 'company',  :template => 'project_dir'
 dep 'family',   :template => 'project_dir'
 
 
-meta 'dot-files' do
+meta 'dotfiletemplate' do
   accepts_value_for :repo, :basename
   accepts_value_for :target, :basename
 
@@ -38,5 +38,5 @@ meta 'dot-files' do
   }
 end
 
-dep 'dotfiles', :template => 'dot-files'
-dep 'private-dotfiles', :template => 'dot-files'
+dep 'dotfiles', :template => 'dotfiletemplate'
+dep 'private-dotfiles', :template => 'dotfiletemplate'
