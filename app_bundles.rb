@@ -40,6 +40,10 @@ end
 
 dep 'Automatic.prefpane' do
   source 'http://codingcurious.com/downloads/Automatic.2.zip'
+
+  met? {
+    '/Library/PreferencePanes/Automatic.prefPane'.p.exist?
+  }
 end
 
 ###Dev tools###
