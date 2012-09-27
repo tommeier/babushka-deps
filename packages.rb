@@ -12,3 +12,11 @@ dep 'pow' do
     log_shell "Installing Pow", "curl get.pow.cx | sh"
   }
 end
+
+dep 'yaml headers.managed' do
+  installs {
+    via :brew, 'libyaml'
+    via :apt, 'libyaml-dev'
+  }
+  provides []
+end
