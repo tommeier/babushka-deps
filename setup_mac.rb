@@ -3,7 +3,7 @@
 dep 'setup_mac' do
   requires 'development_dir'
   requires 'current', 'company', 'family', 'archived'
-  
+
   requires 'publish-to-script'
   requires 'dotfiles', 'private-dotfiles'
 
@@ -26,7 +26,6 @@ dep 'setup osx apps installed' do
   requires 'Google Chrome.app',
            'Firefox.app',
            'Skype.app',
-           'LimeChat.app',
            'NetNewsWire.app',
            'PS3 Media Server.app',
            'Transmission Remote GUI.app',
