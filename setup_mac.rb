@@ -15,7 +15,8 @@ dep 'setup_mac' do
 
   # Ruby versions with rbenv
   requires 'rbenv',
-           '1.9.3.rbenv', '1.8.7.rbenv'
+           '1.9.3-p194-perf.rbenv',
+           'set-global-rbenv-version'
 
   requires 'node', 'npm'
 end
