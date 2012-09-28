@@ -59,6 +59,7 @@ end
 
 dep 'Sublime Text 2.app' do
   sparkle 'http://www.sublimetext.com/updates/2/stable/appcast_osx.xml'
+  version '>=2.0.1'
 end
 
 dep 'Sublime Text 2.configured' do
