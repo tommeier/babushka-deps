@@ -12,6 +12,14 @@ dep 'ruby-build.managed' do
   provides []
 end
 
+dep 'yaml-headers.managed' do
+  installs {
+    via :brew, 'libyaml'
+    via :apt, 'libyaml-dev'
+  }
+  provides []
+end
+
 dep 'rbenv' do
   met? {
     in_path? 'rbenv'
@@ -44,7 +52,7 @@ meta :rbenv do
     def version_group
       version.scan(/^\d\.\d/).first
     end
-    requires 'rbenv', 'yaml headers.managed'
+    requires 'rbenv', 'yaml-headers.managed'
     met? {
       (ruby_prefix / 'bin/ruby').executable? and
       shell(ruby_prefix / 'bin/ruby -v')[/^ruby #{version}#{patchlevel}\b/]
