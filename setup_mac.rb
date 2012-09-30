@@ -7,8 +7,8 @@ dep 'setup_mac' do
   requires 'publish-to-script'
   requires 'dotfiles', 'private-dotfiles'
 
-  requires 'benhoskings:tree.managed',
-           'benhoskings:postgres.managed',
+  requires 'tree.managed',
+           'postgres.managed',
            'redis'
 
   requires 'setup osx apps installed'
