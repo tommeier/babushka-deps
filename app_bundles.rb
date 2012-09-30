@@ -38,7 +38,7 @@ dep 'iStat Menus.app' do
   sparkle 'http://bjango.com/istatmenus/appcast/appcast.xml'
 end
 
-dep 'Automatic.prefpane' do
+dep 'Automatic.installer' do
   source 'http://codingcurious.com/downloads/Automatic.2.zip'
 
   met? {

@@ -39,7 +39,7 @@ dep 'setup osx apps installed' do
            'UnRarX.app',
            'iStumbler.app',
            'iStat Menus.app'
-           'Automatic.prefpane'
+           'Automatic.installer'
 
   # Development
   requires 'iTerm.app',
