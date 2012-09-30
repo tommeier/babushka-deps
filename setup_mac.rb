@@ -38,7 +38,7 @@ dep 'setup osx apps installed' do
            'Things.app',
            'UnRarX.app',
            'iStumbler.app',
-           'iStat Menus.app'
+           'iStat Menus.app',
            'Automatic.installer'
 
   # Development

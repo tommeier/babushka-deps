@@ -38,12 +38,25 @@ dep 'iStat Menus.app' do
   sparkle 'http://bjango.com/istatmenus/appcast/appcast.xml'
 end
 
+#Required custom install - Unsure why
 dep 'Automatic.installer' do
-  source 'http://codingcurious.com/downloads/Automatic.2.zip'
-
+  #source 'http://codingcurious.com/downloads/Automatic.2.zip'
   met? {
     '/Library/PreferencePanes/Automatic.prefPane'.p.exist?
   }
+  meet {
+    log_shell("Downloading Automatic", "curl -L 'http://codingcurious.com/downloads/Automatic.2.zip' -o ~/Downloads/automatic.zip")
+    log_shell("Unzipping","unzip -o ~/Downloads/automatic.zip -d ~/Downloads")
+    log_shell("Copying into /Library/PreferencePanes","sudo cp -r ~/Downloads/Automatic.prefPane /Library/PreferencePanes")
+  }
+
+  after {
+      log "Cleaning up (deleting downloaded files)"
+      "~/Downloads/automatic.zip".p.remove
+      "~/Downloads/Automatic.prefPane".p.remove
+      "~/Downloads/__MACOSX".p.remove
+    }
+  
 end
 
 ###Dev tools###
