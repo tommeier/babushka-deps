@@ -18,6 +18,7 @@ dep 'setup_mac' do
            '1.9.3-p194-perf.rbenv',
            'set-global-rbenv-version'
 
+  requires 'elasticsearch.managed'
   #requires 'node', 'npm'
 end
 

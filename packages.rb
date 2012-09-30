@@ -25,3 +25,4 @@ dep 'pow' do
 end
 
 dep 'tree.managed'
+dep 'elasticsearch.managed'
