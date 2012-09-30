@@ -20,6 +20,17 @@ dep 'yaml-headers.managed' do
   provides []
 end
 
+#Mountain lion installs of /usr/bin/gcc symlinks to llvm-gcc-4.2 which is not sufficient for older ruby installs
+#lrwxr-xr-x     1 root   wheel        12 26 Sep 21:09 gcc -> llvm-gcc-4.2
+dep 'gcc-for-mountain-lion.installer' do
+  #Get latest from https://github.com/kennethreitz/osx-gcc-installer
+  source 'https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg'
+
+  met? {
+    File.exists?('/usr/bin/gcc-4.2') 
+  }
+end
+
 dep 'rbenv' do
   met? {
     in_path? 'rbenv'
@@ -31,7 +42,7 @@ end
 
 dep 'set-global-rbenv-version' do
   met? {
-    shell('cat ~/.rbenv/version')[/^#{Regexp.escape('1.9.3-p194-perf')}/]
+    shell('cat ~/.rbenv/version').to_s == "1.9.3-p194-perf"
   }
   meet {
     shell 'rbenv global 1.9.3-p194-perf'
@@ -52,7 +63,7 @@ meta :rbenv do
     def version_group
       version.scan(/^\d\.\d/).first
     end
-    requires 'rbenv', 'yaml-headers.managed'
+    requires 'rbenv', 'yaml-headers.managed', 'gcc-for-mountain-lion.installer'
     met? {
       (ruby_prefix / 'bin/ruby').executable? and
       shell(ruby_prefix / 'bin/ruby -v')[/^ruby #{version}#{patchlevel}\b/]
@@ -61,7 +72,7 @@ meta :rbenv do
       yaml_location = shell('brew info libyaml').split("\n").collapse(/\s+\(\d+ files, \S+\)/).first
       handle_source "http://ftp.ruby-lang.org/pub/ruby/#{version_group}/ruby-#{version_spec}.tar.gz" do |path|
         invoke(:customise)
-        log_shell 'Configure', "./configure --prefix='#{ruby_prefix}' --with-libyaml-dir='#{yaml_location}' CC=/usr/bin/gcc"
+        log_shell 'Configure', "./configure --prefix='#{ruby_prefix}' --with-libyaml-dir='#{yaml_location}' CC=/usr/bin/gcc-4.2"
         log_shell 'Build',     "make -j#{Babushka.host.cpus}"
         log_shell 'Install',   "make install"
 

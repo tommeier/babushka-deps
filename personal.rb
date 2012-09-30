@@ -12,17 +12,21 @@ meta 'project_dir' do
   accepts_value_for :target, :basename
 
   template {
-    met? { (ENV['HOME'] / "development" / "projects" / target).dir? }
+    def directory_name
+     target.to_s.gsub(/^directory\-/, '')
+    end
+
+    met? { (ENV['HOME'] / "development" / "projects" / directory_name).dir? }
     meet {
-      log_shell "Make ~/development/projects/#{target}", "mkdir -p ~/development/projects/#{target}"
+      log_shell "Make ~/development/projects/#{directory_name}", "mkdir -p ~/development/projects/#{directory_name}"
     }
   }
 end
 
-dep 'archived', :template => 'project_dir'
-dep 'current',  :template => 'project_dir'
-dep 'company',  :template => 'project_dir'
-dep 'family',   :template => 'project_dir'
+dep 'directory-archived', :template => 'project_dir'
+dep 'directory-current',  :template => 'project_dir'
+dep 'directory-company',  :template => 'project_dir'
+dep 'directory-family',   :template => 'project_dir'
 
 dep 'publish-to-script' do
   met? {
