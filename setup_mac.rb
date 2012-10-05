@@ -9,7 +9,8 @@ dep 'setup_mac' do
 
   requires 'tree.managed',
            'postgres.managed',
-           'redis'
+           'redis',
+           'phantomjs.managed'
 
   requires 'setup osx apps installed'
 

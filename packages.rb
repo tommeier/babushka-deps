@@ -26,3 +26,4 @@ end
 
 dep 'tree.managed'
 dep 'elasticsearch.managed'
+dep 'phantomjs.managed'

@@ -8,3 +8,4 @@ dep 'npm' do
     log_shell 'Run npm install.sh', 'curl http://npmjs.org/install.sh | clean=no sh'
   }
 end
+
