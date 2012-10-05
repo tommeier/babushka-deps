@@ -1,3 +1,17 @@
+dep 'libxml2.managed' do
+  installs {
+    via :brew, 'libxml2'
+  }
+  provides []
+end
+
+dep 'libxslt.managed' do
+  installs {
+    via :brew, 'libxslt'
+  }
+  provides []
+end
+
 dep 'node', :template => 'managed'
 
 dep 'npm' do

@@ -20,7 +20,8 @@ dep 'setup_mac' do
            'set-global-rbenv-version'
 
   requires 'elasticsearch.managed'
-  #requires 'node', 'npm'
+  requires 'libxml2.managed', 'libxslt.managed',
+           'node', 'npm'
 end
 
 
