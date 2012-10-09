@@ -21,7 +21,7 @@ dep 'setup_mac' do
 
   requires 'elasticsearch.managed'
   requires 'libxml2.managed', 'libxslt.managed',
-           'node', 'npm'
+           'node', 'npm', 'coffeescript'
 end
 
 
