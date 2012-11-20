@@ -27,7 +27,7 @@ dep 'gcc-for-mountain-lion.installer' do
   source 'https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg'
 
   met? {
-    File.exists?('/usr/bin/gcc-4.2') 
+    File.exists?('/usr/bin/gcc-4.2')
   }
 end
 
@@ -99,4 +99,13 @@ dep '1.9.3-p194-perf.rbenv' do
   customise {
     shell "curl https://raw.github.com/gist/2600122/rbenv.sh | sh "
   }
+end
+
+
+dep 'bundler.gem' do
+  provides %w[bundle]
+end
+
+dep 'git-pulls.gem' do
+  provides %w[git-pulls]
 end

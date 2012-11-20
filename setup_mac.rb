@@ -17,7 +17,8 @@ dep 'setup_mac' do
   # Ruby versions with rbenv
   requires 'rbenv',
            '1.9.3-p194-perf.rbenv',
-           'set-global-rbenv-version'
+           'set-global-rbenv-version',
+           'bundler.gem', 'git-pulls.gem'
 
   requires 'elasticsearch.managed'
   requires 'libxml2.managed', 'libxslt.managed',
