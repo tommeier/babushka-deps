@@ -5,7 +5,7 @@ dep 'setup_mac' do
   requires 'directory-current', 'directory-company', 'directory-family', 'directory-archived'
 
   requires 'publish-to-script'
-  requires 'dotfiles', 'private-dotfiles'
+  requires 'private-dotfiles', 'dotfiles'
 
   requires 'tree.managed',
            'postgres.managed',
